@@ -10,24 +10,21 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
     
 /**
  *
  * @author Lucas Fernandes de Jesus
  */
-public class javaFlixView extends JFrame {
+public class JavaFlixView extends JFrame {
 
        public static void main(final String[]args) {
-
-           JFrame.setDefaultLookAndFeelDecorated(true);
-           JFrame frame = new JFrame(" void main(final String[]args) {\n" +
-"\n" +
-"           JFrame.setDefaultLookAndFeelDecorated(true);\n" +
-"           JFrameLayout");
-           frame.setVisible(true);
-           frame.setSize(550,550);
+           
+           //Criação do JFrame
+           JFrame frame = new JFrame("JavaFlix");
            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+           frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+           frame.setVisible(true);
+           frame.setResizable(false);
            
            // Criando painel principal
            JPanel panelUm = new JPanel();
@@ -35,10 +32,10 @@ public class javaFlixView extends JFrame {
            
            // GridLayout para os filmes
            JPanel moviesPanel = new JPanel();
-           moviesPanel.setLayout(new GridLayout(5, 5, 25, 54));
+           moviesPanel.setLayout(new GridLayout(2, 6, 30, 30));
            
            //Navbar
-           JTextField navbar = new JTextField("JavaFlix");
+           NavBar navBar = new NavBar();
            
            // Cards clicáveis com os filmes
            JButton filmeUm = new JButton("Filme 1");
@@ -55,7 +52,7 @@ public class javaFlixView extends JFrame {
            moviesPanel.add(filmeCinco);
            moviesPanel.add(filmeSeis);
            
-           panelUm.add(navbar, BorderLayout.NORTH);
+           panelUm.add(navBar, BorderLayout.NORTH);
            panelUm.add(moviesPanel, BorderLayout.CENTER);
            panelUm.setVisible(true);
            panelUm.setSize(550, 550);
