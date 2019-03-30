@@ -21,7 +21,12 @@ public class javaFlixView extends JFrame {
        public static void main(final String[]args) {
 
            JFrame.setDefaultLookAndFeelDecorated(true);
-           JFrame frame = new JFrame("Layout");
+           JFrame frame = new JFrame(" void main(final String[]args) {\n" +
+"\n" +
+"           JFrame.setDefaultLookAndFeelDecorated(true);\n" +
+"           JFrameLayout");
+           frame.setVisible(true);
+           frame.setSize(550,550);
            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
            // Criando painel principal
@@ -54,5 +59,7 @@ public class javaFlixView extends JFrame {
            panelUm.add(moviesPanel, BorderLayout.CENTER);
            panelUm.setVisible(true);
            panelUm.setSize(550, 550);
+           
+           frame.setContentPane(panelUm);
        }
 }
