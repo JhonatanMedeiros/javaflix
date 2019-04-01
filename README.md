@@ -1,15 +1,14 @@
 # Netflix Project with Java
-> This project is focused on a layout prototype for the Netflix desktop App in Java
 
-- The main purpose of this app is the enrichment of the knowledge handling Swing;
+- This project is focused on a layout prototype for the Netflix desktop App in Java
+
+> The main purpose of this app is the enrichment of the knowledge handling Swing;
 
 ### Topics
 
--[x] Management of layouts for the main screen
--[x] Usage of GridLayout to display the movie cards
--[x] Usage of a movies API
-
-
+- [x] Management of layouts for the main screen<br>
+- [x] Usage of GridLayout to display the movie cards<br>
+- [x] Usage of a movies API
 
 Feel free to use this piece of code!
 
