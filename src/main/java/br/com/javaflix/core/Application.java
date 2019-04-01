@@ -1,5 +1,6 @@
 package br.com.javaflix.core;
 
+import br.com.javaflix.components.MovieDetails;
 import br.com.javaflix.view.JavaFlixView;
 
 /**
@@ -15,6 +16,5 @@ public class Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
     
-}
+}}

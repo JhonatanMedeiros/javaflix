@@ -19,7 +19,7 @@ public class TheMovieDB {
      * Docs: https://www.themoviedb.org/documentation/api
      */
     private final String API_URL = "https://api.themoviedb.org/3";
-    private final String API_KEY = "API_KEY_HERE";
+    private final String API_KEY = "00356e95f8470797034445c44ae2ae7c";
     
     private ArrayList<Movie> moveList;
     
