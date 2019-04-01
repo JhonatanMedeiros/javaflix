@@ -20,3 +20,7 @@ Feel free to use this piece of code!
 <table><tr><td align="center"><a href="https://github.com/jhonatanmedeiros"><img src="https://avatars1.githubusercontent.com/u/29604104?s=460&v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Jhonatan Medeiros</b></sub></td>
 <td align="center"><a href="https://github.com/madeofsky"><img src="https://avatars2.githubusercontent.com/u/44444770?s=460&v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Lucas Fernandes de Jesus</b></sub></td></tr></table>
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+
+## LICENSE
+
+[MIT](LICENSE)
