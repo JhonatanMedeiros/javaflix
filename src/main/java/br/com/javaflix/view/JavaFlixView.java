@@ -1,12 +1,18 @@
 package br.com.javaflix.view;
 
+import br.com.javaflix.components.MoviePreview;
 import br.com.javaflix.components.NavBar;
+import br.com.javaflix.controller.TheMovieDB;
+import br.com.javaflix.model.Movie;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
-import javax.swing.JButton;
+import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
     
 /**
  *
@@ -14,46 +20,60 @@ import javax.swing.JPanel;
  */
 public class JavaFlixView extends JFrame {
     
-    public JavaFlixView() throws HeadlessException {
+    private JPanel mainPanel;
+    private JProgressBar progress;
+    private JPanel moviesPanel;
+    private NavBar navBar;
+    
+    public JavaFlixView() throws HeadlessException, IOException {
         super("JavaFlix");
        
         // Criação do JFrame
+        this.setLayout(new GridLayout(0, 1));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.setResizable(true);
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.setResizable(false);
+        
 
-        // Criando painel principal
-        JPanel panelUm = new JPanel();
-        panelUm.setLayout(new BorderLayout());
+        // Create Main Panel
+        this.mainPanel = new JPanel();
+        this.mainPanel.setLayout(new BorderLayout());
 
         // GridLayout para os filmes
-        JPanel moviesPanel = new JPanel();
-        moviesPanel.setLayout(new GridLayout(2, 6, 30, 30));
+        this.moviesPanel = new JPanel();
+        this.moviesPanel.setLayout(new GridLayout(0, 6));
 
         //Navbar
-        NavBar navBar = new NavBar();
-
-        // Cards clicáveis com os filmes
-        JButton filmeUm = new JButton("Filme 1");
-        JButton filmeDois = new JButton("Filme 2");
-        JButton filmeTres = new JButton("Filme 3");
-        JButton filmeQuatro = new JButton("Filme 4");
-        JButton filmeCinco = new JButton("Filme 5");
-        JButton filmeSeis = new JButton("Filme 6");
-
-        moviesPanel.add(filmeUm);
-        moviesPanel.add(filmeDois);
-        moviesPanel.add(filmeTres);
-        moviesPanel.add(filmeQuatro);
-        moviesPanel.add(filmeCinco);
-        moviesPanel.add(filmeSeis);
-
-        panelUm.add(navBar, BorderLayout.NORTH);
-        panelUm.add(moviesPanel, BorderLayout.CENTER);
-        panelUm.setVisible(true);
-        panelUm.setSize(550, 550);
-
-        this.setContentPane(panelUm);
+        this.navBar = new NavBar();
+        
+        // Add Progress bar
+        this.progress = new JProgressBar(SwingConstants.HORIZONTAL);
+        this.progress.setIndeterminate(true);
+        
+        this.mainPanel.add(navBar, BorderLayout.NORTH);
+        this.mainPanel.add(moviesPanel, BorderLayout.CENTER);
+        this.mainPanel.add(progress, BorderLayout.SOUTH);
+        this.mainPanel.setPreferredSize(new Dimension(800,600));
+        this.mainPanel.setVisible(true);
+        
+        this.getContentPane().add(mainPanel);
+        
+        // Get Movie List from API The Movie DB
+        this.GetMovies();        
     }
+    
+    public void GetMovies() {
+        TheMovieDB.getIntance().refresh();
+         this.progress.setVisible(true);
+        for (Movie movie : TheMovieDB.getIntance().getMovies()) {
+            this.moviesPanel.add(new MoviePreview(movie));
+        }
+         this.progress.setVisible(false);
+         this.mainPanel.updateUI();
+         this.mainPanel.setVisible(true);    
+    }
+    
+    
 }
