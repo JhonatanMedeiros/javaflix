@@ -1,5 +1,5 @@
 
-# Netflix Project with Java
+# [Netflix Project with Java](https://github.com/JhonatanMedeiros/javaflix)
 
 - This project is focused on a layout prototype for the Netflix desktop App in Java
 
