@@ -36,6 +36,8 @@ public class TheMovieDB {
         try {
             HttpResponse<JsonNode> request = Unirest.get(this.API_URL + "/movie/popular")
                     .queryString("api_key", this.API_KEY)
+                    .queryString("language", "pt-BR")
+                    .queryString("region", "BR")
                     .asJson();
             
             JSONObject responsejson = request.getBody().getObject();
